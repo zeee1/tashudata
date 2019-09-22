@@ -1,0 +1,48 @@
+---
+title: "README"
+author: "Jiwon Min"
+date: '2019 9 23 '
+output: md_document
+---
+
+## Installation : "tashudata" package
+Package 'tashudata' should be installed by using 'drat' package before calling analysis function.
+tashudata contains some data such as bicycle rental history, weather and bicycle station information for 3 years.
+Functions of package 'tashu' uses data on 'tashudata'.
+
+``` {r eval=FALSE}
+library(drat)
+addRepo("zeee1")
+install.packages("tashudata")
+```
+
+```{r}
+library(tashudata)
+```
+## Data
+Package 'tashudata' provides 3 types of dataset.
+
+1.    Tashu Data
+: Bicycle rental history on Tashu from 2013 to 2015. Data is consisted of "RENT STATION, RENT DATE, RETURN STATION, RETURN DATE"
+* tashu : Rental/Return record from 2013 to 2015.
+
+```{r}
+head(tashudata::tashu, n = 5)
+```
+
+2.    Tashu Station Data
+: By 2014 there were 144 bicycle stations on "Tashu" system. In this package, only the existing data of 144 stations are considered. Data is consisted of "NUM(Number of station), NUMOFBIKE_RACK(Number of Bike rack), GEODATA_lat(Latitude of station), GEODATA_lon(Longitude of station)"
+
+* tashuStation : data of 144 Stations on Tashu system. 
+```{r}
+head(tashudata::tashuStation, n = 5)
+```
+
+3.    Weather Data
+: Weather data In Daejeon from 2013 to 2015. It is consisted of "datetime, temperature, rainfall, windspeed, wind direction, humidity, Dew point temperature, Local Pressure, Sea surface Pressure, Sunshine, Solar Radiation, Snowfall, Ground Temperature"
+
+* weather : weather data in Daejeon from 2013 to 2015
+
+```{r}
+head(tashudata::weather, n = 5)
+```
